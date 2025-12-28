@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  sentinel_review_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "8080:80"  # Adjust ports as needed
