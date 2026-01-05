@@ -25,9 +25,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# uv-specific
-uv.lock
-
 # IDEs
 .vscode/
 .idea/
