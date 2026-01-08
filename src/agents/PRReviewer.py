@@ -36,15 +36,4 @@ class PRReviewer:
             security_response=security_response,
         )
         return summarizer_response
-
-
-
-
-
-
-
-
-
-
-
-
+        
