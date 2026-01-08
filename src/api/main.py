@@ -22,7 +22,7 @@ app.add_middleware(
 
 
 @app.post("/review-pr", tags=["Review PR"])
-async def review_pr(pr_url: PRUrl):
+async def review_pr(body: PRUrl):
     pr_reviewer = PRReviewer()
-    pr_review_response = await pr_reviewer.generate_pr_review(pr_url=pr_url)
-    return {'pr_url': pr_url, 'review': pr_review_response}
+    pr_review_response = await pr_reviewer.generate_pr_review(pr_url = body.pr_url)
+    return {'pr_url': body.pr_url, 'review': pr_review_response}
