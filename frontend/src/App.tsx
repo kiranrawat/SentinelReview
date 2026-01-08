@@ -2,7 +2,7 @@
 import Box from '@mui/material/Box';
 import './App.css';
 import AppHeader from './components/app-header/AppHeader';
-import PullRequestInput from './components/pull-request-input/PullRequestInput';
+import PullRequestReviewer from './components/pull-request-reviewer/PullRequestReviewer';
 import { Container } from '@mui/material';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <AppHeader />
       </Box>
       <Container maxWidth="md">
-      <PullRequestInput/>
+      <PullRequestReviewer/>
       </Container>
     </>
   )
