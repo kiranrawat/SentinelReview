@@ -1,5 +1,5 @@
 import requests
-from src.github_fetcher.models import PRDetails, PRFile
+from github_fetcher.models import PRDetails, PRFile
 from urllib.parse import urlparse
 
 class GithubAPIConnector:

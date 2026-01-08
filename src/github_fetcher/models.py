@@ -1,59 +1,59 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Literal
+from datetime import datetime
+
 
 class GitUser(BaseModel):
     login: str
     id: int
-    node_id: str
-    avatar_url: str
-    gravatar_id: str
-    url: str
-    html_url: str
-    followers_url: str
-    following_url: str
-    gists_url: str
-    starred_url: str
-    subscriptions_url: str
-    organizations_url: str
-    repos_url: str
-    events_url: str
-    received_events_url: str
-    type: str
+    node_id: Optional[str] = None
+    avatar_url: Optional[str] = None
+    gravatar_id: Optional[str] = None
+    url: Optional[str] = None
+    html_url: Optional[str] = None
+    type: Optional[str] = None
+
 
 class Repository(BaseModel):
-    url: str
-    svn_url: str
+    url: Optional[str] = None
+    svn_url: Optional[str] = None
 
-class GitCommits(BaseModel):
+
+class PRRef(BaseModel):
     sha: str
-    label: str
     ref: str
-    repo: Repository
+    label: Optional[str] = None
+    repo: Optional[Repository] = None
+
 
 class PRDetails(BaseModel):
     title: str
-    body: str
+    body: Optional[str] = None
     user: GitUser
-    created_at: str
-    updated_at: str
+    created_at: datetime
+    updated_at: datetime
     merged: bool
     mergeable: Optional[bool] = None
     commits: int
     additions: int
     deletions: int
     changed_files: int
-    head: GitCommits
-    base: GitCommits
+    head: PRRef
+    base: PRRef
+
 
 class PRFile(BaseModel):
     sha: str
     filename: str
-    status: str
+    status: Literal[
+        "added", "modified", "removed", "renamed", "copied", "changed", "unchanged"
+    ]
     additions: int
     deletions: int
     changes: int
-    blob_url: str
-    raw_url: str
+    blob_url: Optional[str] = None
+    raw_url: Optional[str] = None
+    contents_url: Optional[str] = None
+    patch: Optional[str] = None
+    previous_filename: Optional[str] = None
     original_file_raw_url: Optional[str] = None
-    contents_url: str
-    patch: str
